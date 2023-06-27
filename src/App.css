@@ -31,4 +31,29 @@
   .title-movie {
     text-align: center;
   }
+
+  .movie-details {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  
+  .movie-image {
+    margin-left: 150px;
+  }
+  
+  .movie-info {
+    flex: 1; 
+    margin-right: 150px;
+  }
+  
+  .movie-info h2 {
+    margin-top: 0;
+  }
+  
+  .movie-info p {
+    margin-bottom: 0.5rem;
+  }
+  
+  
   
