@@ -1,0 +1,28 @@
+  /* CARRUSEL */
+  .actor-carousel {
+    display: flex;
+    align-items: center;
+  }
+  
+  .scroll-button {
+    background-color: white;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  
+  .actor-container {
+    margin-top: 20px;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .actor-row {
+    display: flex;
+    transition: transform 0.3s ease;
+  }
+  
+  .actor-item {
+    flex: 0 0 150px;
+    margin: 0 10px;
+  }

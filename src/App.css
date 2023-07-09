@@ -1,14 +1,42 @@
+
+*{
+  font-family: 'Nunito', sans-serif;
+}
 .titulo {
-    text-align: center;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-  }
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
   
-  .buscador {
-    margin-bottom: 1rem;
-    text-align: center;
-  }
+}
+
   
+.buscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.buscador input {
+  padding: 0.5rem;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+}
+
+.buscador button {
+  padding: 0.5rem 1rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.buscador button:hover {
+  background-color: #555;
+}
+
   .container {
     margin-top: 1rem;
     display: flex;
@@ -40,11 +68,16 @@
   
   .movie-image {
     margin-left: 150px;
+    z-index: 1;
+
   }
   
   .movie-info {
     flex: 1; 
     margin-right: 150px;
+    margin-top: 25px;
+    z-index: 1;
+    color: aliceblue;
   }
   
   .movie-info h2 {
@@ -54,6 +87,71 @@
   .movie-info p {
     margin-bottom: 0.5rem;
   }
+  
+  .genre-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .genre-list {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .actor-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .actor-list {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .genre-item {
+    border: 3px solid white;
+    border-radius: 10px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+  
+  .movie-details {
+    position: relative;
+    
+  }
+  
+  .background-image {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .movie-details {
+    position: relative;
+  }
+  
+  .background-image {
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(19, 40, 49, 0.8);
+  }
+  
+
+
+  
   
   
   

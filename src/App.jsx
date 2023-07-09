@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import Movie from './components/Movie';
 import MovieDetails from './components/MovieDetails';
@@ -11,6 +11,8 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [searchKey, setSearchKey] = useState('');
   const [selectedMovie, setSelectedMovie] = useState(null);
+
+  const containerRef = useRef(null); // Ref del contenedor principal
 
   const fetchMovies = async (searchKey) => {
     const type = searchKey ? 'search' : 'discover';
@@ -30,19 +32,35 @@ function App() {
     const response = await axios.get(`${URL_API}/movie/${movieId}`, {
       params: {
         api_key: KEY_API,
-        append_to_response: 'credits',
+        append_to_response: 'credits,images',
       },
     });
-  
+
     const movieDetails = response.data;
+    const backdropPath = movieDetails.images.backdrops[0]?.file_path;
+    if (backdropPath) {
+      movieDetails.background_path = backdropPath;
+    }
     setSelectedMovie(movieDetails);
   };
-  
 
   const handleMovieClick = (movie) => {
     fetchMovieDetails(movie.id);
+    scrollToTop(); // Llama a la función para desplazarse hacia arriba
   };
-  
+
+  const scrollToTop = () => {
+    containerRef.current.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
 
   useEffect(() => {
     fetchMovies();
@@ -59,13 +77,14 @@ function App() {
       <form className='buscador' onSubmit={searchMovies}>
         <input
           type='text'
-          placeholder='Buscar'
+          placeholder='Search'
+          className='buscador-input'
           onChange={(e) => setSearchKey(e.target.value)}
         />
-        <button type='submit'>Search</button>
+        <button type='submit' className='buscador-button'>Search</button>
       </form>
       {selectedMovie && <MovieDetails movie={selectedMovie} />}
-      <div className='container'>
+      <div className='container' ref={containerRef}>
         <div className='row'>
           {movies.map((movie) => (
             <Movie
