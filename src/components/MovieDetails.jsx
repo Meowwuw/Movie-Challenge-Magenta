@@ -1,8 +1,13 @@
-import ActorCarousel from './ActorCarousel';
+import PropTypes from 'prop-types';
 
-function MovieDetails({ movie }) {
+import ActorCarousel from './ActorCarousel';
+function MovieDetails({ movie, onSelect }) {
   const genres = movie.genres ? movie.genres.map((genre) => genre.name) : ['N/A'];
   const actors = movie.credits && movie.credits.cast ? movie.credits.cast : [];
+
+  const handleSelect = () => {
+    onSelect(movie);
+  }
 
   return (
     <div className="movie-details">
@@ -31,11 +36,33 @@ function MovieDetails({ movie }) {
         </div>
         <div className="actor-container">
           <ActorCarousel actors={actors} />
-          </div>
-
+        </div>
+        <button onClick={handleSelect}>Añadir a la lista</button>
       </div>
     </div>
   );
 }
+
+MovieDetails.propTypes = {
+  movie: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    overview: PropTypes.string.isRequired,
+    backdrop_path: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired, // Agregar esta línea para validar la propiedad poster_path
+    genres: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired
+      })
+    ),
+    credits: PropTypes.shape({
+      cast: PropTypes.arrayOf(
+        PropTypes.shape({
+          // Definir las propiedades específicas del objeto cast si es necesario
+        })
+      )
+    })
+  }).isRequired,
+  onSelect: PropTypes.func.isRequired
+};
 
 export default MovieDetails;
