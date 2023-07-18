@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-
+import React from 'react';
 import ActorCarousel from './ActorCarousel';
+
 function MovieDetails({ movie, onSelect }) {
   const genres = movie.genres ? movie.genres.map((genre) => genre.name) : ['N/A'];
   const actors = movie.credits && movie.credits.cast ? movie.credits.cast : [];
@@ -27,10 +28,10 @@ function MovieDetails({ movie, onSelect }) {
         <p>{movie.overview}</p>
         <div className="genre-container">
           <div className="genre-list">
-            {genres.map((genre, index) => (
-              <div key={index} className="genre-item">
-                {genre}
-              </div>
+          {genres.map((genre) => (
+          <div key={genre} className="genre-item">
+            {genre}
+            </div>
             ))}
           </div>
         </div>
@@ -65,4 +66,5 @@ MovieDetails.propTypes = {
   onSelect: PropTypes.func.isRequired
 };
 
-export default MovieDetails;
+const MemoizedMovieDetails = React.memo(MovieDetails);
+export default MemoizedMovieDetails;

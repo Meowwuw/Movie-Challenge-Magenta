@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import Movie from './Movie';
 
@@ -19,5 +20,7 @@ MovieList.propTypes = {
   containerRef: PropTypes.object.isRequired,
 };
 
-export default MovieList;
+const MemoizedMovieList = React.memo(MovieList);
+export default MemoizedMovieList;
+
 

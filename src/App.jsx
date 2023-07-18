@@ -1,4 +1,5 @@
-import { useEffect, useState, useRef } from 'react';
+
+import { useEffect, useState, useRef, useCallback } from 'react';
 import { fetchMovies, fetchMovieDetails } from './api';
 import SearchForm from './components/SearchForm';
 import MovieList from './components/MovieList';
@@ -15,11 +16,11 @@ function App() {
 
   const containerRef = useRef(null); // Ref del contenedor principal
 
-  const handleMovieClick = async (movie) => {
+  const handleMovieClick = useCallback(async (movie) => {
     const movieDetails = await fetchMovieDetails(movie.id);
     setSelectedMovie(movieDetails);
-    scrollToTop(); // Llama a la función para desplazarse hacia arriba
-  };
+    scrollToTop();
+  }, []);
 
   const scrollToTop = () => {
     containerRef.current.scrollIntoView({
