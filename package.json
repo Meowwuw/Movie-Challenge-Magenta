@@ -2,11 +2,11 @@
   "name": "movie-challenge",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://Meowwuw.github.io/Movie-Challenge-Magenta/build",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "deploy": "gh-pages -d dist",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "test": "jest"
@@ -36,6 +36,7 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "gh-pages": "^3.2.3",
     "jest": "^29.6.1",
     "jest-environment-jsdom": "^29.6.1",
     "vite": "^4.4.3"
