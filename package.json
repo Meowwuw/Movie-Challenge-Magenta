@@ -2,6 +2,7 @@
   "name": "movie-challenge",
   "private": true,
   "version": "0.0.0",
+  "homepage": "https://Meowwuw.github.io/Movie-Challenge-Magenta/build",
   "type": "module",
   "scripts": {
     "dev": "vite",

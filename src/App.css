@@ -2,6 +2,7 @@
 *{
   font-family: 'Nunito', sans-serif;
 }
+
 .titulo {
   text-align: center;
   margin-top: 3rem;
@@ -146,7 +147,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(19, 40, 49, 0.8);
+    background: rgba(36, 85, 106, 0.8);
   }
   
 
