@@ -8,6 +8,7 @@ import SelectedMoviesList from './components/SelectedMoviesList';
 import './App.css';
 
 function App() {
+  console.log("aqui vivimos felices")
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [selectedMovies, setSelectedMovies] = useState([]);
