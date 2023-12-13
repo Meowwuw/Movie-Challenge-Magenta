@@ -88,7 +88,7 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       <h1 className='titulo'>Movies</h1>
       <SearchForm onSearch={handleSearch} />
       {showWinner ? (
@@ -123,7 +123,7 @@ function App() {
         </>
       )}
       <div ref={containerRef}></div>
-    </div>
+      </>
   );
 }
 
